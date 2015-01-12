@@ -150,7 +150,7 @@
                 <!-- pass some reference info to the php file getting the posted info... -->
                 <input type="hidden" name="recid" value="<?php echo $rid ?>" />
                 <input type="hidden" name="urlsave" value="<?php echo $url ?>" />
-                <input type="hidden" name="-action" value="edit_dtime-quickclose" />
+                <input type="hidden" name="-action" value="edit_dtime_quickclose" />
                 <input type="submit" value="Submit" id="submit" name="submit" data-theme="a" />
             </form>
         </div>
