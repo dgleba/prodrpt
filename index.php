@@ -17,35 +17,12 @@ if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
     require_once "../xataface/dataface-public-api.php";
 }
 
-//require_once "xataface//dataface-public-api.php"; 
-//require_once "..//xataface//dataface-public-api.php"; 
-//require_once "xataface/dataface-public-api.php"; 
-//require_once "C:\\p2\\xampp\\htdocs\\xataface30801\\dataface-public-api.php";  //2013-07-11_Thu_10.05-AM
-//require_once "C:\\p2\\xampp\\htdocs\\xataface\\dataface-public-api.php";  //2013-07-11_Thu_10.05-AM
-
-
-/* 
-2012-06-21 made it generic so it works in both...
-Windows:
-require_once "C:\\p2\\websw\\xampp\\htdocs\\xataface\\dataface-public-api.php"; 
-*/
-/* 
-Linux:
-require_once "/var/www/xataface/dataface-public-api.php"; 
-*/
-
 //set default sort order. this is needed in 1.5x. to get it to work. 2012-06-21
 // 
 if ( !isset($_REQUEST['-sort']) and @$_REQUEST['-table'] == 'vw_all_prdowntime1' ){
     $_REQUEST['-sort'] = $_GET['-sort'] = 'completedtime desc';
    }
    
-/*
-if ( !isset($_REQUEST['-sort']) and @$_REQUEST['-table'] == 'pr_downtime1' ){
-    $_REQUEST['-sort'] = $_GET['-sort'] = 'completedtime';
-   }
-*/
-
 if ( !isset($_REQUEST['-sort']) and @$_REQUEST['-table'] == 'about_this_app' ){
     $_REQUEST['-sort'] = $_GET['-sort'] = 'sort_order desc';
    }
@@ -67,4 +44,3 @@ if ( !$_POST and $query['-table'] == 'vw_edit_prdowntime1' and !isset($query['co
 }
 
 $app->display();
-

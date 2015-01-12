@@ -4,21 +4,27 @@ class tables_pr_downtime1 {
 
     function __sql__() {
         return
-         "SELECT *
-         FROM `pr_downtime1` order by closed asc, completedtime desc, called4helptime desc
-         limit 0,30  ";
-
+            "SELECT *, ( concat_ws('_', SUBSTRING(machinenum, 1, 14), SUBSTRING(problem, 1, 26), (completedtime)) )  as record_ref
+            FROM `pr_downtime1` 
+            order by closed asc, completedtime desc, called4helptime desc
+            ";
+        
 	 /**
 	 notes: 
+
+    function __sql__() {
+        return
+         "SELECT *
+         FROM `pr_downtime1` order by closed asc, completedtime desc, called4helptime desc
+         ";
 	 
 	  "SELECT *
         FROM `pr_downtime1` , IF(completedtime IS NULL OR completedtime = '0000-00-00', 1, 0) AS openitem
         order by openitem Desc,  called4helptime desc, completedtime desc
         limit 0,30  ";
-
-		Fatal error: Failed parsing SQL query on select: SELECT * FROM `pr_downtime1` , IF(completedtime IS NULL OR completedtime = '0000-00-00', 1, 0) AS openitem order by openitem Desc, called4helptime desc, completedtime desc limit 0,30 . The Error was Parse error: Unexpected clause on line 2 FROM `pr_downtime1` , IF(completedtime IS NULL OR completedtime = '0000-00-00', 1, 0) AS openitem ^ found: "IF" in C:\p2\xampp\htdocs\xataface\lib\SQL\Parser.php on line 1773
+Fatal error: Failed parsing SQL query on select: SELECT * FROM `pr_downtime1` , IF(completedtime IS NULL OR completedtime = '0000-00-00', 1, 0) AS openitem order by openitem Desc, called4helptime desc, completedtime desc limit 0,30 . The Error was Parse error: Unexpected clause on line 2 FROM `pr_downtime1` , IF(completedtime IS NULL OR completedtime = '0000-00-00', 1, 0) AS openitem ^ found: "IF" in C:\p2\xampp\htdocs\xataface\lib\SQL\Parser.php on line 1773
 		
-        works:
+    works:
 		"SELECT * 
         FROM `pr_downtime1`  order by completedtime asc, called4helptime desc
         limit 0,30 ";

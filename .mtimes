@@ -8,8 +8,6 @@
 1420557208|actions.ini
 1420214710|actions/create_dtime-frm.php
 1420494411|actions/create_dtime.php
-1420744637|actions/dashboard_action.php
-1420554508|actions/edit_dtime-frm.php
 1420495346|actions/edit_dtime.php
 1380310990|actions/machinenum_ac.php
 1381433580|actions/mobile_dash.php
@@ -19,14 +17,12 @@
 1336610662|blanklogo.png
 1380909992|changes-pr-csddg.txt
 1420818192|changes-pr-pmds-data.txt
-1421069220|conf.ini
 1380295829|conf/ApplicationDelegate.php
 1397233995|config.dbc.example
 1393878006|css/dashboard1.css
 1380550826|css/offline/blanklogo.png
 1381434465|css/offline/styleXF2.css
 1381522374|documents2/fix-timestamps.bat
-1402689997|index.php
 1378301225|js/handler-idletimeout.js
 1375880551|js/handler-save1a.js
 1420826002|log,of,this,root/log,of,this,root.7z
@@ -41,9 +37,7 @@
 1402673473|tables/pr_cell_group/pr_cell_group.php
 1402428457|tables/pr_cell_list/fields.ini
 1402428556|tables/pr_cell_list/pr_cell_list.php
-1397059074|tables/pr_downtime1/fields.ini
 1420835263|tables/pr_downtime1/pr_downtime1-readme.txt
-1420826682|tables/pr_downtime1/pr_downtime1.php
 1395339586|tables/pr_downtime1/valuelists.ini
 1370538327|tables/pr_machine/fields.ini
 1370614254|tables/pr_machine/pr_machine.php
@@ -78,4 +72,12 @@
 1402431984|tables/z,,pr_production_1/fields.ini
 1402425635|tables/z,,pr_production_1/pr_production.php
 1402431996|tables/z,,pr_production_1/valuelists.ini
-1420838755|templates/dashboard.html
+1420932634|actions/dashboard_action.php
+1420858699|actions/edit_dtime-frm.php
+1420859124|actions/edit_dtime_quickclose-frm.php
+1420859349|actions/edit_dtime_quickclose.php
+1421071451|conf.ini
+1420932234|index.php
+1420933198|tables/pr_downtime1/fields.ini
+1420948653|tables/pr_downtime1/pr_downtime1.php
+1421072651|templates/dashboard.html

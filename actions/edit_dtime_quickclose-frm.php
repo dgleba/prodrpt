@@ -87,11 +87,12 @@
                     <input type="datetime-local" name="datetime-l" class="required"  id="datetime-l" value="<?php
 
                     //http://php.net/manual/en/function.date.php -- look for: 'If you want to use HTML5's <date> tag, the following' 
-                    function getDateTimeValue($intDate = null) {   //returns HTML5 date text input formatted as datetime or currentdate if nothing is passed.
+                    function getDateTimeValue($intDate = null) {   //returns HTML5 date text input formatted as datetime or current date if nothing is passed.
                         $strFormat = 'Y-m-d\TH:i';
                         $strDate = $intDate ? date($strFormat, $intDate) : date($strFormat);
                         return $strDate;
                     }
+
                     echo getDateTimeValue(strtotime($rrecord->strval('called4helptime')));
                     // for current date... echo getDateTimeValue();   
                     ?>" />
@@ -129,13 +130,14 @@
                     <input type="datetime-local" name="completed_time"  id="datetime-l" value="<?php
 
                     //http://php.net/manual/en/function.date.php -- look for: 'If you want to use HTML5's <date> tag, the following' 
-                    function getDateTime($intDate = null) {   //returns HTML5 date text input formatted as datetime or null if nothing is passed.
+                    function getDateTime($intDate = null) {   //returns HTML5 date text input formatted as datetime or current date if nothing is passed.
                         $strFormat = 'Y-m-d\TH:i';
                         //http://php.net/manual/en/language.operators.comparison.php#language.operators.comparison.ternary
-                        $strDate = $intDate ? date($strFormat, $intDate) : null;
+                        $strDate = $intDate ? date($strFormat, $intDate) : date($strFormat);
                         return $strDate;
                     }
                     echo getDateTime(strtotime($rrecord->strval('completedtime')));
+                    // for current date... echo getDateTimeValue();   
                     ?>" />
                 </div>
 
@@ -148,7 +150,7 @@
                 <!-- pass some reference info to the php file getting the posted info... -->
                 <input type="hidden" name="recid" value="<?php echo $rid ?>" />
                 <input type="hidden" name="urlsave" value="<?php echo $url ?>" />
-                <input type="hidden" name="-action" value="edit_dtime" />
+                <input type="hidden" name="-action" value="edit_dtime-quickclose" />
                 <input type="submit" value="Submit" id="submit" name="submit" data-theme="a" />
             </form>
         </div>
