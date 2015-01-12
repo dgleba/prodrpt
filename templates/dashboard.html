@@ -1,0 +1,80 @@
+{use_macro file="Dataface_Main_Template.html"}
+{fill_slot name="main_column"}
+<h3 style="text-align: center;">Production Status Dashboard</h3>
+
+<!-- 
+<p>This is a mobile app for filing Downtime Status Reports. 
+-->
+
+<ul>
+
+    <!--<li>
+            <img src="{$ENV.DATAFACE_URL}/images/add_icon.gif"/>
+            <a href="{$ENV.DATAFACE_SITE_HREF}?-action=mobile_dash">
+                <button type="button" id="dash-btn2" >
+                    <span style="font-size:2em;">Mobile Page</span>
+                </button>
+            </a>
+        </li>-->
+
+    <div>
+        <!--<img src="{$ENV.DATAFACE_URL}/images/add_icon.gif"/>-->
+        <a href="{$ENV.DATAFACE_SITE_HREF}?-table=pr_downtime1&-action=create_dtime" class="btn btn-xlg btn-success">NEW Downtime (mobile)</a>
+        
+        <!--
+        <a href="{$ENV.DATAFACE_SITE_HREF}?-table=pr_downtime1&-action=create_dtime">
+            <button type="button" id="dash-btn1" >
+                <span style="font-size:1.4em;">New Downtime</span>
+                <span style="font-size:0.7em;">(Mobile)</span>   </button>
+        </a>
+        -->
+   </div>
+   </br>
+    
+    <div>
+        <!--
+        <img src="{$ENV.DATAFACE_URL}/images/edit.gif"/>
+        <a href="{$ENV.DATAFACE_SITE_HREF}?-table=vw_edit_prdowntime1">
+            <button type="button" id="dash-btn1" >
+                <span style="font-size:1.4em;">Edit Downtime</span>
+                <span style="font-size:0.6em;">(Desktop)</span>     </button>
+        </a>
+        -->
+        <a href="{$ENV.DATAFACE_SITE_HREF}?-table=vw_edit_prdowntime1" class="btn btn-xlg btn-success">EDIT Downtime (desktop view)</a>
+    </div>
+    
+    
+    <!--<li-->
+    <!--<img src="{$ENV.DATAFACE_URL}/images/add_icon.gif"/>-->
+    <!--<a href="{$ENV.DATAFACE_SITE_HREF}?-table=vw_edit_prdowntime1&-action=create_test">-->
+    <!--<button type="button" id="dash-btn1" >-->
+    <!--<span style="font-size:1.4em;">Close Downtime</span>-->
+    <!--<span style="font-size:0.7em;">(Mobile)</span>   </button>-->
+    <!--</a>--> 
+    <!--put some whitespace above the item below-->
+    <!--<span style="font-size:1.3em;"><br/><br/><br/></span>-->
+    <!--</li>-->
+
+    <div>
+        <!--<img src="{$ENV.DATAFACE_URL}/images/edit.gif"/> 
+        <span style="font-size:1.4em;"><br/></span>  
+        <span style="font-size:4.4em;">Edit</span>  
+        <span style="font-size:1.6em;">(from </span>
+        <span style="font-size:2em;">list):</span>
+        -->
+      <h1> <span class="label label-default">Edit</span> </h1>
+      To keep an item open, clear the Completedtime before pressing submit. <br/>
+        <select onchange="window.location.href = this.options[this.selectedIndex].value" id="dash-select1">
+            <option value="">Select ...</option>
+            {foreach from=$vw_edit2_prdowntime1 item=arecord}
+            <option value="{$arecord->getURL('-action=edit_dtime')}">
+                {$arecord->getTitle()}
+            </option>
+            {/foreach}
+        </select>
+       <br/> List shows: Machine - Problem - Completedtime.  <br/>
+    </div>
+
+</ul>
+{/fill_slot}
+{/use_macro} 

@@ -1,0 +1,230 @@
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>>  .
+-----------------------------
+2015-01-09[Jan-Fri]10-40AM
+
+added trigger for closed to pr-downtime1 table
+
+may be able to simplify views using this.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>>  .
+-----------------------------
+2015-01-05 - 2015-01-08
+
+several changes to g2responsive to fit it to the screen
+chaanges to sorting with openitem calculated column in view
+tweaking things per Dave Clark input.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+last change 9/20 to premissions.ini
+
+2013-10-07[Oct-Mon]08-44AM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+I added a popup alert when save is pressed. This should help reduce the number of duplicate records we get.
+
+2013-07-26[Jul-Fri]17-31PM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+changed sort to this idea in actions.ini
+
+	;best - 2013-07-25_Thu_10.24-AM
+	url="{$app->url('-sort=createdtime+desc')}"
+
+
+2013-07-25[Jul-Thu]10-26AM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-changed to xataface30711
+-changed to  yui_autocomplete:maxResultsDisplayed = 30 for machinenum in create tab
+
+
+2013-07-11[Jul-Thu]10-52AM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+added sort button called4helptime desc to allrows tab
+
+2013-06-20[Jun-Thu]11-58AM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+changed email border to:
+
+$message1 .= '<table rules="all" border="1" style="border: 1px solid #211D57;" cellpadding="5">';
+
+
+2013-06-13[Jun-Thu]09-19AM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+changed email table border color in pr_downtime1.php
+
+			//$message1 .= '<table rules="all" style="border-color: #666;" cellpadding="10">';
+			$message1 .= '<table rules="all" style="border-color: #1E186E;" cellpadding="10">';
+
+
+2013-06-13[Jun-Thu]08-39AM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+edited labels in email.
+
+show createdtime on some lists.
+
+2013-06-11[Jun-Tue]08-18AM
+2013-06-11_Tue_08.30-AM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+start adding sort custom actions menu buttons...
+
+02:15PM done. ok.
+
+2013-06-10[Jun-Mon]14-01PM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+changed structure of about this app table
+there was error due to column = order.
+changed it to sort_order
+added id to let it have a vanilla primary autoincrement field
+
+changed timeout in conf.ini
+
+added full open tags in php files.
+
+2013-06-07[Jun-Fri]10-08AM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+C:\p2\xampp\htdocs\prodrpt\tables\pr_machine fields.ini
+
+changed order
+
+2013-06-06[Jun-Thu]13-36PM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+made some minor changes the other day and forgot to update this file.
+
+-no longer require who is on it and datecompleted on edit. this allows editing of remedy.
+  who is on it can be edited on the create screen.
+-some other minor stuff  
+
+2013-06-05[Jun-Wed]11-31AM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+removed --skip-opt from mysqldump
+it did not have auto increment in the dump
+
+2013-05-24[May-Fri]14-09PM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+moved from 
+C:\p2\websw\xampp\
+to
+C:\p2\xampp\
+
+2013-05-02[May-Thu]15-33PM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-changed create to the table not the view.
+   this allows email to be sent. from view it could not find the record to email.
+-added "open status" top menu item
+
+
+2013-04-25[Apr-Thu]08-40AM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+i was making a test database and messed things up.
+I just did
+mysql -u root -p -h localhost prodrptdb < C:\p2\websw\xampp\htdocs\prodrpt\documents-pr-dg\bkups\prodrptexp.sql
+to restore it.
+Hope all is correct.
+
+2013-04-22[Apr-Mon]10-03AM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+added admin tab back in. 
+used global required = true
+
+2013-04-22[Apr-Mon]08-29AM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1
+commented out function isAdmin() in index.php
+
+2
+a bit of housekeeping.
+
+3.
+removed 
+C:\p2\websw\xampp\htdocs\prodrpt\templates\
+C:\p2\websw\xampp\htdocs\prodrpt\images\
+C:\p2\websw\xampp\htdocs\prodrpt\css\
+
+2013-04-16[Apr-Tue]15-02PM
+2013-04-16_Tue_15.35-PM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+changing default sort for about_this_app
+
+status: complete.
+
+2013-04-16[Apr-Tue]14-14PM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2013-04-05_Fri_15.35-PM added whoisonit to vw_create_pr...
+done.
+=
+start to add whoisonit to the create view 
+2013-04-05[Apr-Fri]15-17PM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+started testing by users
+
+2013-04-05[Apr-Fri]15-17PM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -1,0 +1,18 @@
+# use glob syntax.
+syntax: glob
+
+*.dbc
+users.txt
+
+.svn/
+.git/
+log/
+documents/
+templates_c/
+nbproject/
+vcsignore/
+tmp/
+
+*.elc
+*.pyc
+*~
