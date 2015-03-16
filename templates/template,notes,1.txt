@@ -1,0 +1,11 @@
+2015-03-16
+
+{use_macro file="Dataface_Main_Template.html"}
+
+{use_macro file="dashboard_Template.html"}
+
+
+took out 
+{block name="before_fineprint"}
+in
+"dashboard_Template.html"

@@ -1,6 +1,6 @@
-{use_macro file="Dataface_Main_Template.html"}
+{use_macro file="dashboard_Template.html"}
 {fill_slot name="main_column"}
-<h3 style="text-align: center;">Production Status Dashboard</h3>
+<h4 style="text-align: center;">Production Status Dashboard</h4>
 
 <!-- 
 <p>This is a mobile app for filing Downtime Status Reports. 
@@ -11,11 +11,8 @@
         <!--<img src="{$ENV.DATAFACE_URL}/images/add_icon.gif"/>-->
         <a href="{$ENV.DATAFACE_SITE_HREF}?-table=pr_downtime1&-action=create_dtime" class="btn btn-lg btn-success">NEW Downtime (mobile)</a>
    </div>
-   </br>
+  
     
-    <div>
-        <a href="{$ENV.DATAFACE_SITE_HREF}?-table=pr_downtime1" class="btn btn-lg btn-success">EDIT Downtime (desktop view)</a>
-    </div>
     
     <div>
       <br><p> <font size="6em"> <span class="label label-default">Edit</span> </font></p>
@@ -42,6 +39,11 @@
             {/foreach}
         </select>
        <br/> List shows: Machine - Problem - Completedtime.  <br/>
+    </div>
+	
+     </br>
+	 <div>
+        <a href="{$ENV.DATAFACE_SITE_HREF}?-table=pr_downtime1" class="btn btn-lg btn-success">Full Site view</a>
     </div>
 
     <div>
