@@ -1,5 +1,6 @@
 ver
 
+15 - 2015-03-17 - minor wording change
 14 - 2015-03-16 - minor change
 12 - 2015-03-16 - changed templates so dashboard would fit a mobile screen more fully.
 11 - 2015-03-16 - started this verion log
