@@ -1,5 +1,6 @@
 ver
 
+16 - 2015-03-23 - change url of more pages button
 15 - 2015-03-17 - minor wording change
 14 - 2015-03-16 - minor change
 12 - 2015-03-16 - changed templates so dashboard would fit a mobile screen more fully.
