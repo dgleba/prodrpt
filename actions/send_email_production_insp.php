@@ -20,8 +20,9 @@ class actions_send_email_production_insp {
 		//$to1      = 'azhou@stackpole.com';	// fill in your own email here for testing purposes
         $subject1 = 'Production Report Submitted';
 			
-		$headers1 = "From: " . "stackpole.stratford@gmail.com" . "\r\n";
-        $headers1 .= "Reply-To: " . "Do-not@reply" . "\r\n";
+        $headers1 = "From: " . "stratford.reports@stackpole.com" . "\r\n";
+		  //$headers1 = "From: " . "stackpole.stratford@gmail.com" . "\r\n";
+        $headers1 .= "Reply-To: " . "Do-not-reply-here" . "\r\n";
         $headers1 .= "MIME-Version: 1.0\r\n";
         $headers1 .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 		
