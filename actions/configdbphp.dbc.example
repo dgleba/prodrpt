@@ -1,0 +1,8 @@
+<?php
+
+/* Connection vars here. */
+$dbhost = 'localhost';
+$dbuser = 'ausername';
+$dbpass = 'apassword';
+$dbname = 'prodrptdb';
+
