@@ -1,5 +1,6 @@
 ver
 
+21 - 2015-03-27	- fixed error in date spec for yesterday section of recent dowtime email.
 20 - 2015-03-27 - modified recent downtime email.
 19 - 2015-03-26 - minor changes.
 17 - 2015-03-26 - minor changes. updated email settings for an email we are not currently using and changed some wording.

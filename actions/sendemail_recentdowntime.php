@@ -12,15 +12,15 @@ class actions_sendemail_recentdowntime {
         $auth = & Dataface_AuthenticationTool::getInstance(); // reference to Dataface_Authentication object
         $user = & $auth->getLoggedInUser();  // Dataface_Record object of currently logged in user.
         //no need to get the current query...
-		//$query =& $app->getQuery();
+		  //$query =& $app->getQuery();
 		
-		//These queries are hard coded to the downtime table, so this error check may be redundant.
+		  //These queries are hard coded to the downtime table, so this error check may be redundant.
         //if ( $query['-table'] != 'pr_downtime1' ){
         //    return PEAR::raiseError('This action can only be called on the True North List table.');
         //}
 
         $to1      = 'stratford.reports@stackpole.com'; // in the final version only this one is needed
-   	    //$to1      = 'dgleba@stackpole.com';	// fill in your own email here for testing purposes
+   	  //$to1      = 'dgleba@stackpole.com';	// fill in your own email here for testing purposes
         $subject1 = 'Recent Downtime Report';
 			
         $headers1 = "From: " . "stratford.reports@stackpole.com" . "\r\n";
@@ -42,10 +42,9 @@ class actions_sendemail_recentdowntime {
         //$list1 = df_get_records_array('pr_downtime1', $query); 
 		//
 		//'Array' method:
-        //$list1 = df_get_records_array('pr_downtime1', array('closed'=>"!=1", '-limit'=>'30')); 
+        $list1 = df_get_records_array('pr_downtime1', array('closed'=>"!=1", '-limit'=>'30')); 
         //an example... $list1 = df_get_records_array('pr_downtime1', array('called4helptime'=>">=2/20/2015 AND <=3/28/2015", '-limit'=>'30')); 
-        $list1 = df_get_records_array('pr_downtime1', array('called4helptime'=>">=2.20.2015 AND <=3.28.2015", '-limit'=>'30')); 
-
+        
 		$message1 .= '<table cellpadding="5" cellspacing="0" border="1" bgcolor="#FFFFFF" style="background: #FEE5DF">';
 		$message1 .= '<tr><th>Called 4 help time</th>';
 		$message1 .= '<th>Machine</th>';
@@ -72,10 +71,13 @@ class actions_sendemail_recentdowntime {
 
 		//second table...............................
 		
-        //$list1 = df_get_records_array('pr_downtime1', array('closed'=>"=1", '-limit'=>'20')); 
+      //$list1 = df_get_records_array('pr_downtime1', array('closed'=>"=1", '-limit'=>'20')); 
 		$datefirst = date("m/d/Y", strtotime( '-0 days' ) );
-		$datelast = date("m/d/Y", strtotime( '+0 days' ) );
-        $list1 = df_get_records_array('pr_downtime1', array('completedtime' => ">=". $datefirst . "AND <=" . $datelast, 'closed'=>"=1", '-limit'=>'30')); 
+		$datelast = date("m/d/Y", strtotime( '+1 days' ) );
+		echo $datefirst; echo ' ';
+		echo $datelast; echo '<br>';
+
+      $list1 = df_get_records_array('pr_downtime1', array('completedtime' => ">=". $datefirst . " AND <=" . $datelast, 'closed'=>"=1", '-limit'=>'30')); 
 
 		$message1 .= '<table cellpadding="5" cellspacing="0" border="1" bgcolor="#FFFFFF" style="background: #FEE5DF">';
 		$message1 .= '<tr><th>Called 4 help time</th>';
@@ -103,11 +105,17 @@ class actions_sendemail_recentdowntime {
 
 		//third table...............................
 		
-		$datefirst = date("m/d/Y", strtotime( '-1 days' ) );
-		echo $datefirst;
-		$datelast = date("m/d/Y", strtotime( '-1 days' ) );
-		echo $datelast;
-        $list3 = df_get_records_array('pr_downtime1', array('completedtime' => ">=". $datefirst . "AND <=" . $datelast, 'closed'=>"=1", '-limit'=>'30')); 
+		$datefirst = date("n/j/Y", strtotime( '-1 days' ) );
+		echo $datefirst; echo ' ';
+		$datelast = date("n/j/Y", strtotime( '-0 days' ) );
+		echo $datelast; echo '<br>';
+      $list3 = df_get_records_array('pr_downtime1', array('completedtime' => ">= ". $datefirst . " AND <=" . $datelast, 'closed'=>"=1", '-limit'=>'30')); 
+
+		$query2 = array('completedtime' => ">=". $datefirst . " AND <=" . $datelast, 'closed'=>"=1", '-limit'=>'30');
+        echo json_encode($query2); echo '<br>';
+		$query1 = array('completedtime' => '>=3/24/2015 AND <=3/25/2015' ,  '-limit'=>'30');
+        echo json_encode($query1);
+		//$list3 = df_get_records_array('pr_downtime1', array('completedtime' => '>=3/24/2015 AND <=3/25/2015' ,  '-limit'=>'30')); 
 
 		$message1 .= '<table cellpadding="5" cellspacing="0" border="1" bgcolor="#FFFFFF" style="background: #FEE5DF">';
 		$message1 .= '<tr><th>Called 4 help time</th>';
@@ -118,14 +126,14 @@ class actions_sendemail_recentdowntime {
 		$message1 .= '<th>Completed Time</th>';
 		$message1 .= '<th>Remedy</th></tr>';
 		
-		foreach ($list3 as $arecord){
-			$message1 .= '<tr><td style="background: #FFFFC2">' . $arecord->htmlValue('called4helptime') . '</td>';
-			$message1 .= '<td style="background: #FFFFC2">' . $arecord->htmlValue('machinenum') . '</td>';
-			$message1 .= '<td style="background: #FFFFC2">' . $arecord->htmlValue('problem') . '</td>';
-			$message1 .= '<td style="background: #FFFFC2">' . $arecord->htmlValue('down') . '</td>';
-			$message1 .= '<td style="background: #FFFFC2">' . $arecord->htmlValue('whoisonit') . '</td>';
-			$message1 .= '<td style="background: #FFFFC2">' . $arecord->htmlValue('completedtime') . '</td>';
-			$message1 .= '<td style="background: #FFFFC2">' . $arecord->htmlValue('remedy') . '</td></tr>';
+		foreach ($list3 as $crecord){
+			$message1 .= '<tr><td style="background: #FFFFC2">' . $crecord->htmlValue('called4helptime') . '</td>';
+			$message1 .= '<td style="background: #FFFFC2">' . $crecord->htmlValue('machinenum') . '</td>';
+			$message1 .= '<td style="background: #FFFFC2">' . $crecord->htmlValue('problem') . '</td>';
+			$message1 .= '<td style="background: #FFFFC2">' . $crecord->htmlValue('down') . '</td>';
+			$message1 .= '<td style="background: #FFFFC2">' . $crecord->htmlValue('whoisonit') . '</td>';
+			$message1 .= '<td style="background: #FFFFC2">' . $crecord->htmlValue('completedtime') . '</td>';
+			$message1 .= '<td style="background: #FFFFC2">' . $crecord->htmlValue('remedy') . '</td></tr>';
 		}
 		$message1 .= "</table></body></html>";
 
