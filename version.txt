@@ -1,5 +1,6 @@
 ver
 
+20 - 2015-03-27 - modified recent downtime email.
 19 - 2015-03-26 - minor changes.
 17 - 2015-03-26 - minor changes. updated email settings for an email we are not currently using and changed some wording.
 17 - 2015-03-26 - minor changes. updated email settings for an email we are not currently using and changed some wording.

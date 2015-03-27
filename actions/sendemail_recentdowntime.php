@@ -11,18 +11,16 @@ class actions_sendemail_recentdowntime {
         $app = & Dataface_Application::getInstance();  // reference to Dataface_Application object
         $auth = & Dataface_AuthenticationTool::getInstance(); // reference to Dataface_Authentication object
         $user = & $auth->getLoggedInUser();  // Dataface_Record object of currently logged in user.
-        $query =& $app->getQuery();
-        $query['-table'] = 'pr_downtime1';
-        //$query['-search'] = 'draw';
-        //$query['-called4helptime'] = '>=3/25/2015';
-        $query['-limit'] = 20;
+        //no need to get the current query...
+		//$query =& $app->getQuery();
 		
-        if ( $query['-table'] != 'pr_downtime1' ){
-            return PEAR::raiseError('This action can only be called on the True North List table.');
-        }
+		//These queries are hard coded to the downtime table, so this error check may be redundant.
+        //if ( $query['-table'] != 'pr_downtime1' ){
+        //    return PEAR::raiseError('This action can only be called on the True North List table.');
+        //}
 
         $to1      = 'stratford.reports@stackpole.com'; // in the final version only this one is needed
-   	  //  $to1      = 'dgleba@stackpole.com';	// fill in your own email here for testing purposes
+   	    //$to1      = 'dgleba@stackpole.com';	// fill in your own email here for testing purposes
         $subject1 = 'Recent Downtime Report';
 			
         $headers1 = "From: " . "stratford.reports@stackpole.com" . "\r\n";
@@ -31,7 +29,23 @@ class actions_sendemail_recentdowntime {
         $headers1 .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 		
 		$message1 = '<html><body>';
-		$message1 .= 'This is the 20 most recent downtime items from the Production/Downtime Status App. <br>The open items appear first {They have no completed-time} - followed by the most recent closed items.<br><br>'; 
+		$message1 .= 'Open downtime items from the Production/Downtime Status App. <br>'; 
+		$message1 .= 'The open items have no completed-time.<br><br>'; 
+
+		//first table..................................
+		//'Query' Method
+        //$query['-table'] = 'pr_downtime1';
+        //$query['-search'] = 'draw';
+        //$query['called4helptime'] = '>=3/26/2015';
+        //$query['closed'] = '!= 1';
+        //$query['-limit'] = 20;
+        //$list1 = df_get_records_array('pr_downtime1', $query); 
+		//
+		//'Array' method:
+        //$list1 = df_get_records_array('pr_downtime1', array('closed'=>"!=1", '-limit'=>'30')); 
+        //an example... $list1 = df_get_records_array('pr_downtime1', array('called4helptime'=>">=2/20/2015 AND <=3/28/2015", '-limit'=>'30')); 
+        $list1 = df_get_records_array('pr_downtime1', array('called4helptime'=>">=2.20.2015 AND <=3.28.2015", '-limit'=>'30')); 
+
 		$message1 .= '<table cellpadding="5" cellspacing="0" border="1" bgcolor="#FFFFFF" style="background: #FEE5DF">';
 		$message1 .= '<tr><th>Called 4 help time</th>';
 		$message1 .= '<th>Machine</th>';
@@ -40,11 +54,8 @@ class actions_sendemail_recentdowntime {
 		$message1 .= '<th>Who Is On It</th>';
 		$message1 .= '<th>Completed Time</th>';
 		$message1 .= '<th>Remedy</th></tr>';
-        
-        $list1 = df_get_records_array('pr_downtime1', $query); 
 		
 		foreach ($list1 as $arecord){
-			
 			$message1 .= '<tr><td style="background: #FFFFC2">' . $arecord->htmlValue('called4helptime') . '</td>';
 			$message1 .= '<td style="background: #FFFFC2">' . $arecord->htmlValue('machinenum') . '</td>';
 			$message1 .= '<td style="background: #FFFFC2">' . $arecord->htmlValue('problem') . '</td>';
@@ -54,7 +65,73 @@ class actions_sendemail_recentdowntime {
 			$message1 .= '<td style="background: #FFFFC2">' . $arecord->htmlValue('remedy') . '</td></tr>';
 		}
 		$message1 .= "</table></body></html>";
-		$message1 .= 'You can see these records in the app itself by visiting the address at: http://pmds-data.stackpole.ca/menu/ <br> click on - Production Status App. <br> Login in. Press Open Status... Click Downtime.<br><br>';
+
+		//
+
+		$message1 .= '<br>Closed Items - closed TODAY.  <br>'; 
+
+		//second table...............................
+		
+        //$list1 = df_get_records_array('pr_downtime1', array('closed'=>"=1", '-limit'=>'20')); 
+		$datefirst = date("m/d/Y", strtotime( '-0 days' ) );
+		$datelast = date("m/d/Y", strtotime( '+0 days' ) );
+        $list1 = df_get_records_array('pr_downtime1', array('completedtime' => ">=". $datefirst . "AND <=" . $datelast, 'closed'=>"=1", '-limit'=>'30')); 
+
+		$message1 .= '<table cellpadding="5" cellspacing="0" border="1" bgcolor="#FFFFFF" style="background: #FEE5DF">';
+		$message1 .= '<tr><th>Called 4 help time</th>';
+		$message1 .= '<th>Machine</th>';
+		$message1 .= '<th>Problem</th>';
+		$message1 .= '<th>Down</th>';
+		$message1 .= '<th>Who Is On It</th>';
+		$message1 .= '<th>Completed Time</th>';
+		$message1 .= '<th>Remedy</th></tr>';
+		
+		foreach ($list1 as $arecord){
+			$message1 .= '<tr><td style="background: #FFFFC2">' . $arecord->htmlValue('called4helptime') . '</td>';
+			$message1 .= '<td style="background: #FFFFC2">' . $arecord->htmlValue('machinenum') . '</td>';
+			$message1 .= '<td style="background: #FFFFC2">' . $arecord->htmlValue('problem') . '</td>';
+			$message1 .= '<td style="background: #FFFFC2">' . $arecord->htmlValue('down') . '</td>';
+			$message1 .= '<td style="background: #FFFFC2">' . $arecord->htmlValue('whoisonit') . '</td>';
+			$message1 .= '<td style="background: #FFFFC2">' . $arecord->htmlValue('completedtime') . '</td>';
+			$message1 .= '<td style="background: #FFFFC2">' . $arecord->htmlValue('remedy') . '</td></tr>';
+		}
+		$message1 .= "</table></body></html>";
+
+		//
+
+		$message1 .= '<br>Closed Items - closed YESTERDAY. <br>'; 
+
+		//third table...............................
+		
+		$datefirst = date("m/d/Y", strtotime( '-1 days' ) );
+		echo $datefirst;
+		$datelast = date("m/d/Y", strtotime( '-1 days' ) );
+		echo $datelast;
+        $list3 = df_get_records_array('pr_downtime1', array('completedtime' => ">=". $datefirst . "AND <=" . $datelast, 'closed'=>"=1", '-limit'=>'30')); 
+
+		$message1 .= '<table cellpadding="5" cellspacing="0" border="1" bgcolor="#FFFFFF" style="background: #FEE5DF">';
+		$message1 .= '<tr><th>Called 4 help time</th>';
+		$message1 .= '<th>Machine</th>';
+		$message1 .= '<th>Problem</th>';
+		$message1 .= '<th>Down</th>';
+		$message1 .= '<th>Who Is On It</th>';
+		$message1 .= '<th>Completed Time</th>';
+		$message1 .= '<th>Remedy</th></tr>';
+		
+		foreach ($list3 as $arecord){
+			$message1 .= '<tr><td style="background: #FFFFC2">' . $arecord->htmlValue('called4helptime') . '</td>';
+			$message1 .= '<td style="background: #FFFFC2">' . $arecord->htmlValue('machinenum') . '</td>';
+			$message1 .= '<td style="background: #FFFFC2">' . $arecord->htmlValue('problem') . '</td>';
+			$message1 .= '<td style="background: #FFFFC2">' . $arecord->htmlValue('down') . '</td>';
+			$message1 .= '<td style="background: #FFFFC2">' . $arecord->htmlValue('whoisonit') . '</td>';
+			$message1 .= '<td style="background: #FFFFC2">' . $arecord->htmlValue('completedtime') . '</td>';
+			$message1 .= '<td style="background: #FFFFC2">' . $arecord->htmlValue('remedy') . '</td></tr>';
+		}
+		$message1 .= "</table></body></html>";
+
+		//Message after all the tables...
+		$message1 .= 'You can see these records in the app itself by visiting the address at: http://pmds-data.stackpole.ca/menu/ <br>';
+		$message1 .= 'click on - Production Status App. <br> Login in. Press Open Status... Click Downtime.<br><br>';
 		
 		$body1 = isset($message1) ? preg_replace('#(\\r\\n|\\n|\\r)#', '<br/>', $message1) : false;
         $body1 = preg_replace('#(______,|______)#', '<br/>', $body1);
@@ -66,7 +143,6 @@ class actions_sendemail_recentdowntime {
             echo '<br><br /><h1><span style="background-color:#ff0000;">There was a problem sending the email.</span></h1><br />';
         }
         echo '<br /><br /><br /><span style="font-size:16px;">Press the BACK button in your browser to go back.</span><br />';
-        
         
     }
 }
