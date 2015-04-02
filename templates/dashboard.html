@@ -11,9 +11,7 @@
         <!--<img src="{$ENV.DATAFACE_URL}/images/add_icon.gif"/>-->
         <a href="{$ENV.DATAFACE_SITE_HREF}?-table=pr_downtime1&-action=create_dtime" class="btn btn-lg btn-success">NEW Downtime (mobile)</a>
    </div>
-  
-    
-    
+   
     <div>
       <br><p> <font size="6em"> <span class="label label-default">Edit</span> </font></p>
         <select onchange="window.location.href = this.options[this.selectedIndex].value" id="dash-select1">
@@ -40,23 +38,22 @@
         </select>
        <br/> List shows: Machine - Problem - Completedtime.  <br/>
     </div>
-	
-     </br>
+     <p>  </p>
 	 <div>
         <a href="{$ENV.DATAFACE_SITE_HREF}?-table=vw_open" class="btn btn-lg btn-success">Open Status and More...</a>
     </div>
-
-    <div>
-    <br><p> <font size="3.5em"> <span class="label label-default">Notes: </span> </font></p>
-    <p> <font size="2.3em"> Default sort order for Downtime is: 
-    <br>Newest open items first, followed by Newest closed items.</font></p>
-   </div>
-
-     </br>
+	<p>  </p>
 	 <div>
         <a href="{$ENV.DATAFACE_SITE_HREF}?-table=pr_downtime1" class="btn btn-lg btn-success">Downtime List</a>
     </div>
 
+    <div>
+    <p>  </p>
+	<p> <font size="3.5em"> <span class="label label-default">Notes: </span> </font></p>
+    <p> <font size="2.3em"> Default sort order for Downtime is: 
+    <br>Newest open items first, followed by Newest closed items.</font></p>
+   </div>
+    
 </ul>
 {/fill_slot}
 {/use_macro} 
