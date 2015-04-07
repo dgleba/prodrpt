@@ -55,6 +55,18 @@ class actions_create_dtime {
             //$url = $app->url('-action=list');
             //$rid = $rrecord->val('idnumber');
             //echo "rid 1= ", $rid;
+            
+             //just a blank screen... getPermissions(&$rrecord);
+             //check permissions...
+             //this needs to be improved. some more feedback to the user would be nice.
+             if (!isset($user))
+                 return Dataface_PermissionsTool::NO_ACCESS();
+             // if the user is null then nobody is logged in... no access.
+             // This will force a login prompt.
+             $role = $user->val('Role');
+             Dataface_PermissionsTool::getRolePermissions($role);
+             // Returns all of the permissions for the user's current role.
+
 
             //$url = $app->url('-action=list');
             $url = $app->url('-table=dashboard&-action=list');

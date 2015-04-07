@@ -1,5 +1,6 @@
 ver
 
+22 - 2015-04-07 - 1. Check mobile create permissions. 2. minor misc.
 21 - 2015-03-27	- fixed error in date spec for yesterday section of recent dowtime email.
 20 - 2015-03-27 - modified recent downtime email.
 19 - 2015-03-26 - minor changes.

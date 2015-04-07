@@ -138,7 +138,7 @@ class actions_sendemail_recentdowntime {
 		$message1 .= "</table></body></html>";
 
 		//Message after all the tables...
-		$message1 .= 'You can see these records in the app itself by visiting the address at: http://pmds-data.stackpole.ca/menu/ <br>';
+		$message1 .= 'You can see these records in the app itself by visiting the address at: http://pmdsdata/ <br>';
 		$message1 .= 'Click on - Production Status App. <br> Login in. Click Downtime.<br><br>';
 		
 		$body1 = isset($message1) ? preg_replace('#(\\r\\n|\\n|\\r)#', '<br/>', $message1) : false;
