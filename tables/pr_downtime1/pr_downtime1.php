@@ -88,4 +88,33 @@ Fatal error: Failed parsing SQL query on select: SELECT * FROM `pr_downtime1` , 
             echo 'There was a problem sending the email.';
         }
     }
+    
+    
+    function block__after_table_actions() {
+
+        //This is a group of commonly used action links arranged in a compact space... 
+        //2014-07-10
+        $app = & Dataface_Application::getInstance();  // reference to Dataface_Application object
+        /*
+            2014-10-17 David Gleba made changes to the url calls below. 
+            mostly add -action=list& so that that those items are preserved in the url on clicks. 
+			
+            2014-11-28 David Gleba 
+            Changed to Twitter Bootstrap accordion style panels
+            Needs g2responsive module active for it to work.
+         */
+        echo
+        '<div id="after_tbl_actions">'
+     .   '<div class="list-group panel">'
+	 .     '<a href="#general" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#after_tbl_actions">General Menu...</a>'
+     .    ' <div class="collapse" id="general">'
+     .    '   <a href="' . $app->url('-sort=idnumber+desc') . '" class="list-group-item">Sort ID desc</a>'
+     .    '   <a href="' . $app->url('-sort=updatedtime+desc') . '" class="list-group-item">Sort Updatedtime Desc</a>'
+     .    ' </div>'
+     .  ' </div>'
+     .  ' </div>'
+        ;
+    }   
+    
+    
 }

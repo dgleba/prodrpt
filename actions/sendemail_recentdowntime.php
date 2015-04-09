@@ -20,7 +20,7 @@ class actions_sendemail_recentdowntime {
         //}
 
         $to1      = 'stratford.reports@stackpole.com'; // in the final version only this one is needed
-   	  //$to1      = 'dgleba@stackpole.com';	// fill in your own email here for testing purposes
+   	    //$to1      = 'dgleba@stackpole.com';	// fill in your own email here for testing purposes
         $subject1 = 'Recent Downtime Report';
         $headers1 = "From: " . "stratford.reports@stackpole.com" . "\r\n";
         //$headers1 .= "bcc: " . "dgleba@stackpole.com" . "\r\n";
@@ -74,6 +74,7 @@ class actions_sendemail_recentdowntime {
       //$list1 = df_get_records_array('pr_downtime1', array('closed'=>"=1", '-limit'=>'20')); 
 		$datefirst = date("m/d/Y", strtotime( '-0 days' ) );
 		$datelast = date("m/d/Y", strtotime( '+1 days' ) );
+		echo 'Debugging info:  <br>';
 		echo $datefirst; echo ' ';
 		echo $datelast; echo '<br>';
 
@@ -109,12 +110,12 @@ class actions_sendemail_recentdowntime {
 		echo $datefirst; echo ' ';
 		$datelast = date("n/j/Y", strtotime( '-0 days' ) );
 		echo $datelast; echo '<br>';
-      $list3 = df_get_records_array('pr_downtime1', array('completedtime' => ">= ". $datefirst . " AND <=" . $datelast, 'closed'=>"=1", '-limit'=>'30')); 
+        $list3 = df_get_records_array('pr_downtime1', array('completedtime' => ">= ". $datefirst . " AND <=" . $datelast, 'closed'=>"=1", '-limit'=>'30')); 
 
 		$query2 = array('completedtime' => ">=". $datefirst . " AND <=" . $datelast, 'closed'=>"=1", '-limit'=>'30');
         echo json_encode($query2); echo '<br>';
 		$query1 = array('completedtime' => '>=3/24/2015 AND <=3/25/2015' ,  '-limit'=>'30');
-        echo json_encode($query1);
+        //echo json_encode($query1);
 		//$list3 = df_get_records_array('pr_downtime1', array('completedtime' => '>=3/24/2015 AND <=3/25/2015' ,  '-limit'=>'30')); 
 
 		$message1 .= '<table cellpadding="5" cellspacing="0" border="1" bgcolor="#FFFFFF" style="background: #FEE5DF">';
