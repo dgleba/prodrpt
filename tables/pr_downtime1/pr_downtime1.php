@@ -106,12 +106,17 @@ Fatal error: Failed parsing SQL query on select: SELECT * FROM `pr_downtime1` , 
         echo
         '<div id="after_tbl_actions">'
      .   '<div class="list-group panel">'
-	 .     '<a href="#general" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#after_tbl_actions">General Menu...</a>'
+	  .    '<a href="#general" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#after_tbl_actions">Sort Menu...</a>'
      .    ' <div class="collapse" id="general">'
      .    '   <a href="' . $app->url('-sort=idnumber+desc') . '" class="list-group-item">Sort ID desc</a>'
      .    '   <a href="' . $app->url('-sort=updatedtime+desc') . '" class="list-group-item">Sort Updatedtime Desc</a>'
      .    ' </div>'
      .  ' </div>'
+
+     .  '<div class="list-group">'
+     .    '   <a href="' . $app->url('-sort=updatedtime+desc') . '" class="list-group-item list-group-item-success">Sort Updatedtime Desc</a>'
+     .  '</div>'
+
      .  ' </div>'
         ;
     }   

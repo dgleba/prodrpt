@@ -6,6 +6,8 @@
 
 added trigger to set closed to 1 if completedtime is set to a value. set to null otherwise.
 
+this allows a sort where neweest open items are first followed by newest closed items.
+
 _____________
 
 This way we can sort open items first decending date, then closed items decending date.
