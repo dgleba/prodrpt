@@ -1,5 +1,6 @@
 ver
 
+25 - 2015-04-14 - 1. minor misc changes 
 24 - 2015-04-09 - 1. change session timeout. 2. added a menu button. 3. minor misc.. 
 23 - 2015-04-09 - 1. change session timeout. 2. added a menu button. 3. minor misc.. 
 22 - 2015-04-07 - 1. Check mobile create permissions. 2. minor misc.
