@@ -1,5 +1,6 @@
 ver
 
+26 - 2015-04-16 - 1. add multiple autocomplete to 'who is on it' field
 25 - 2015-04-14 - 1. minor misc changes 
 24 - 2015-04-09 - 1. change session timeout. 2. added a menu button. 3. minor misc.. 
 23 - 2015-04-09 - 1. change session timeout. 2. added a menu button. 3. minor misc.. 
