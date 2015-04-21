@@ -1,5 +1,6 @@
 ver
 
+27 - 2015-04-21 - 1. add down_length in minutes calculated column. 2. add email button on dashboard.
 26 - 2015-04-16 - 1. add multiple autocomplete to 'who is on it' field
 25 - 2015-04-14 - 1. minor misc changes 
 24 - 2015-04-09 - 1. change session timeout. 2. added a menu button. 3. minor misc.. 

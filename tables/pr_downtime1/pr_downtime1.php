@@ -4,13 +4,23 @@ class tables_pr_downtime1 {
 
     function __sql__() {
         return
-            "SELECT *, ( concat_ws('_', SUBSTRING(machinenum, 1, 14), SUBSTRING(problem, 1, 26), (completedtime)) )  as record_ref
+            "SELECT *, ( concat_ws('_', SUBSTRING(machinenum, 1, 14), SUBSTRING(problem, 1, 26), (completedtime)) )  as record_ref, 
+            (( UNIX_TIMESTAMP(completedtime) - UNIX_TIMESTAMP(called4helptime) ) /60)   as down_length
             FROM `pr_downtime1` 
             order by closed asc, completedtime desc, called4helptime desc
             ";
         
 	 /**
 	 notes: 
+
+         down duration notes:
+               ((completedtime - called4helptime) / 100/60 ) as hrs_down
+               ((completedtime - called4helptime) / 100/60 ) as down_length
+ 
+             http://stackoverflow.com/questions/4759248/difference-between-two-dates-in-mysql
+             ( TIMESTAMPDIFF(SECOND, `completedtime`, `called4helptime`)  ) as down_length
+
+
 
     function __sql__() {
         return
@@ -22,7 +32,7 @@ class tables_pr_downtime1 {
         FROM `pr_downtime1` , IF(completedtime IS NULL OR completedtime = '0000-00-00', 1, 0) AS openitem
         order by openitem Desc,  called4helptime desc, completedtime desc
         limit 0,30  ";
-Fatal error: Failed parsing SQL query on select: SELECT * FROM `pr_downtime1` , IF(completedtime IS NULL OR completedtime = '0000-00-00', 1, 0) AS openitem order by openitem Desc, called4helptime desc, completedtime desc limit 0,30 . The Error was Parse error: Unexpected clause on line 2 FROM `pr_downtime1` , IF(completedtime IS NULL OR completedtime = '0000-00-00', 1, 0) AS openitem ^ found: "IF" in C:\p2\xampp\htdocs\xataface\lib\SQL\Parser.php on line 1773
+            Fatal error: Failed parsing SQL query on select: SELECT * FROM `pr_downtime1` , IF(completedtime IS NULL OR completedtime = '0000-00-00', 1, 0) AS openitem order by openitem Desc, called4helptime desc, completedtime desc limit 0,30 . The Error was Parse error: Unexpected clause on line 2 FROM `pr_downtime1` , IF(completedtime IS NULL OR completedtime = '0000-00-00', 1, 0) AS openitem ^ found: "IF" in C:\p2\xampp\htdocs\xataface\lib\SQL\Parser.php on line 1773
 		
     works:
 		"SELECT * 
@@ -31,10 +41,11 @@ Fatal error: Failed parsing SQL query on select: SELECT * FROM `pr_downtime1` , 
 		
     	I may try a strategy where closed items are 1 and open items are 0
 	 
-	 So if the release date has a NULL value or has been inserted as a blank string and formatted to 0000-00-00, it is given a value of 1, and 0 otherwise. We then sort descending by our new in_production alias in the ORDER BY clause to get the NULL or empty values on top (assigned a 1 value), and then by release date and other criteria second.
-	 SELECT m.*, IF(m.date_released IS NULL OR m.date_released = '0000-00-00', 1, 0) AS in_production FROM movies AS m ORDER BY in_production DESC, m.date_released DESC
-     http://vancelucas.com/blog/mysql-series-return-null-values-first-with-descending-order/
+      So if the release date has a NULL value or has been inserted as a blank string and formatted to 0000-00-00, it is given a value of 1, and 0 otherwise. We then sort descending by our new in_production alias in the ORDER BY clause to get the NULL or empty values on top (assigned a 1 value), and then by release date and other criteria second.
+      SELECT m.*, IF(m.date_released IS NULL OR m.date_released = '0000-00-00', 1, 0) AS in_production FROM movies AS m ORDER BY in_production DESC, m.date_released DESC
+      http://vancelucas.com/blog/mysql-series-return-null-values-first-with-descending-order/
      */
+     
     }
 	
     /**
@@ -111,15 +122,13 @@ Fatal error: Failed parsing SQL query on select: SELECT * FROM `pr_downtime1` , 
      .    '   <a href="' . $app->url('-sort=idnumber+desc') . '" class="list-group-item">Sort ID desc</a>'
      .    '   <a href="' . $app->url('-sort=updatedtime+desc') . '" class="list-group-item">Sort Updatedtime Desc</a>'
      .    ' </div>'
-     .  ' </div>'
+     .  '</div>'
 
      .  '<div class="list-group">'
      .    '   <a href="' . $app->url('-sort=updatedtime+desc') . '" class="list-group-item list-group-item-success">Sort Updatedtime Desc</a>'
      .  '</div>'
-
-     .  ' </div>'
+     .  '</div>'
         ;
-    }   
-    
-    
+    }  
+         
 }

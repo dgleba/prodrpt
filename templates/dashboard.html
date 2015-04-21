@@ -45,6 +45,8 @@
 	<p>  </p>
 	 <div>
         <a href="{$ENV.DATAFACE_SITE_HREF}?-table=pr_downtime1" class="btn btn-lg btn-success">Downtime List</a>
+       <!--    horizontal nonbreaking space   --> &nbsp;&nbsp; &nbsp; 
+       <a href="http://pmds-data.stackpole.ca/dokuwiki/doku.php?id=start" class="btn  btn-default">Help/Info</a>
     </div>
 
     <div>
@@ -55,10 +57,10 @@
    </div>
 
 	 <div>
-        <a href="http://pmds-data.stackpole.ca/dokuwiki/doku.php?id=start" class="btn  btn-default">help</a>
+        <!--  &nbsp;&nbsp; &nbsp;  horizontal nonbreaking space   -->
+        <a href="{$ENV.DATAFACE_SITE_HREF}?-table=pr_downtime1&-action=sendemail_recentdowntime" class="btn btn-warning">Send Email Recent Downtime</a>
     </div>
-
-    
+   
 </ul>
 {/fill_slot}
 {/use_macro} 

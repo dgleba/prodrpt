@@ -1,11 +1,20 @@
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Title:  .
+-----------------------2015-04-21[Apr-Tue]12-15PM
+
+Add a priority column so that tech's and everyong can focus and can work on the next high priority item.
+
+Grant.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Title:  .
 -----------------------2015-04-09[Apr-Thu]10-12AM
 
+1.
 todo: this is used in mobile forms. look at changing it to pr_downtime1
-
 \\pmds-data\xampp\htdocs\prodrpt\tables\vw_edit_prdowntime1
-
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
