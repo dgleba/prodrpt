@@ -1,6 +1,7 @@
 {*-------------------------------------------------------------------------------
 
-2015-03-16 copy of dataface_main_template.html and  modified to turn off several items to make the main content of the dashboard fill the screen more fully.  
+2015-03-16 copy of dataface_main_template.html - modified to turn off several items to make the main content of the dashboard fill the screen more fully.  
+2015-05-13 added comments.
 David Gleba.
 
 
@@ -100,12 +101,16 @@ David Gleba.
 		{define_slot name="search_form"}
 		<div class="was-search" >
 
-		
+   		<!-- David Gleba removed search bar stanza that was in dataface_main_template.html-->
+	
 		</div>
+
 		{/define_slot}
 		{block name="after_search"}
 
 		{/if}
+
+		<!-- David Gleba removed navbar stanza that was in dataface_main_template.html-->
 
 		<div id="status-bar">
 		{if !$ENV.prefs.hide_language_selector}
@@ -116,6 +121,7 @@ David Gleba.
 		
 		{if !$ENV.prefs.hide_user_status}
 		<div id="user-status">
+		   <!-- David Gleba removed user stanza-->
 		</div>
 		{/if}
 

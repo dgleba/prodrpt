@@ -1,5 +1,6 @@
 ver
 
+29 - 2015-05-13 - minor changes
 28 - 2015-04-29 - 1. add duration to recent downtime email
 27 - 2015-04-21 - 1. add down_length in minutes calculated column. 2. add email button on dashboard.
 26 - 2015-04-16 - 1. add multiple autocomplete to 'who is on it' field
