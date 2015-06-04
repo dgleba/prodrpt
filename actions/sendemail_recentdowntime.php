@@ -20,8 +20,8 @@ class actions_sendemail_recentdowntime {
         //}
 
         $to1      = 'stratford.reports@stackpole.com'; // in the final version only this one is needed
-   	  //  $to1      = 'dgleba@stackpole.com';	// fill in your own email here for testing purposes
-        $subject1 = 'Recent Downtime Report';
+   	     // $to1      = 'dgleba@stackpole.com';	// fill in your own email here for testing purposes
+        $subject1 = 'Recent Downtime Report (from "Prodigy" App)';
         $headers1 = "From: " . "stratford.reports@stackpole.com" . "\r\n";
         //$headers1 .= "bcc: " . "dgleba@stackpole.com" . "\r\n";
         $headers1 .= "Reply-To: " . "Do-not-reply-here" . "\r\n";
@@ -146,7 +146,7 @@ class actions_sendemail_recentdowntime {
 
 		//Message after all the tables...
 		$message1 .= 'You can see these records in the app itself by visiting the address at: http://pmdsdata/ <br>';
-		$message1 .= 'Click on - Production Status App. <br> Login in. Click Downtime.<br><br>';
+		$message1 .= 'Click on:  Prodigy - (Production Status App). <br> Login in. Click `Downtime List`.<br><br>';
 		
 		$body1 = isset($message1) ? preg_replace('#(\\r\\n|\\n|\\r)#', '<br/>', $message1) : false;
         $body1 = preg_replace('#(______,|______)#', '<br/>', $body1);
