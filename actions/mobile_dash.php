@@ -37,7 +37,7 @@
 
             <div data-role="navbar">
                 <ul>
-                    <li><a href="?-table=vw_edit_prdowntime1" class="ui-btn-active" data-ajax="false">Edit Downtime</a></li>
+                    <li><a href="?-table=pr_downtime1" class="ui-btn-active" data-ajax="false">Edit Downtime</a></li>
                 </ul>
             </div>  
                         

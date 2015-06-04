@@ -98,6 +98,16 @@
             });
         </script>
 
+        <script type="text/javascript">
+            $(document).ready(function() {
+                // ----------------------------------------------- pre-select the select menu with id=active2 below...
+                $("#priorit1").val("<?php echo $rrecord->strval('priority'); ?>");
+                // some posts said newer jqm needs this... $('active2 option[value=Yes]').prop('selected', 'selected');
+                $("#priorit1").selectmenu("refresh");
+            });
+        </script>
+
+
     </head>
 
     <body>
@@ -152,6 +162,16 @@
                 <div data-role="fieldcontain">
                     <label for="text">Problem:</label>
                     <input type="text"  name="problem" id="problem"  value="<?php echo $rrecord->strval('problem'); ?>" />
+                </div>
+
+                <div data-role="fieldcontain">
+                    <label for="select" class="select">Priority:</label>
+                    <select name="priorit1" id="priorit1">
+                        <option>Please select...</option>
+                        <option value="A">A</option>
+                        <option value="b">b</option>
+                        <option value="c">c</option>
+                    </select>
                 </div>
 
                 <div class="control-group">

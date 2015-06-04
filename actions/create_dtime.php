@@ -14,7 +14,7 @@ class actions_create_dtime {
             //echo "state= ", $_POST['state'], "<br/>";
             //echo "dtetime= ", $_POST['datetime-l'], "<br/>";
 
-            $rrecord = new Dataface_Record('vw_edit_prdowntime1', array());
+            $rrecord = new Dataface_Record('pr_downtime1', array());
             $rrecord->setValues(array(
                 'problem'           => $_POST['problem'],
                 'machinenum'        => $_POST['machinenum_n'],

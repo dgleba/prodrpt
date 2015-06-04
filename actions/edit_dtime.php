@@ -17,12 +17,14 @@ class actions_edit_dtime {
             //echo "dtetime2= ", $_POST['datetime-2'], "<br/>";
             //echo "dtetime3= ", $_POST['datetime-3'], "<br/>";
 
-            $rrecord = df_get_record('vw_edit_prdowntime1', array('idnumber' => $_POST['recid']));
+            //$rrecord = df_get_record('vw_edit_prdowntime1', array('idnumber' => $_POST['recid']));
+            $rrecord = df_get_record('pr_downtime1', array('idnumber' => $_POST['recid']));
 
             $rrecord->setValues(array(
                 'problem' => $_POST['problem'],
                 'machinenum' => $_POST['machinenum_n'],
                 'called4helptime' => $_POST['datetime-l'],
+                'priority' => $_POST['priorit1'],
                 'whoisonit' => $_POST['who_is_on_it_n'],
                 'down' => $_POST['down2'],
                 'completedtime' => $_POST['completed_time'],
