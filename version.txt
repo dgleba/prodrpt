@@ -1,5 +1,7 @@
 ver
 
+32 - 2015-06-25 - added trackberry test
+31 - 2015-06-22 - open dokuwiki instructions in a new tab
 30 - 2015-06-05 - added tech assignment workflow proposal
 29 - 2015-05-13 - minor changes
 28 - 2015-04-29 - 1. add duration to recent downtime email
