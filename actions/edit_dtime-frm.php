@@ -147,7 +147,7 @@
 
                 <div data-role="fieldcontain">
                     <label for="select" class="select">Down:</label>
-                    <select name="down2" id="down2">
+                    <select name="down2" id="down2"  class="required">
                         <option>Please select...</option>
                         <option value="Yes_Down">Yes_down</option>
                         <option value="No">No</option>
