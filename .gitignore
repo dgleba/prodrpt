@@ -3,6 +3,7 @@
 *.dbc
 documents/
 assets/
+*.7z
 
 #not needed
 
