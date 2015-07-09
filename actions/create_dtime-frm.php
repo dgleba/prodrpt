@@ -8,13 +8,14 @@
         <title>Downtime Status App</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
-        <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/redmond/jquery-ui.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
-        <link rel="stylesheet" href="css/styleXF2.css" />
-        <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+        <link rel="stylesheet" href="assets/jqmobile/jquery.mobile-1.3.2.min.css" />
+        <link rel="stylesheet" type="text/css" href="assets/jqueryui/redmond/jquery-ui.min.css">
+        <script src="assets/jquery-1.11.3.min.js"></script>
+        <script src="assets/jquery-migrate-1.2.1.js"></script>
+        <script src="assets/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="assets/jqmobile/jquery.mobile-1.3.2.min.js"></script>
+        <link rel="stylesheet" href="style-xf1.css" />
+        <script type="text/javascript" src="assets/jquery.validate.min.js"></script>
 
         <script type="text/javascript">
             // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ initialize validation plugin jquery.validate.min.js

@@ -4,9 +4,9 @@ class tables_tkb_prodtrak {
 
     function __sql__() {
         return
-            "SELECT *,  from_unixtime(Time)  as Utimeformated
-            FROM `tkb_prodtrak` 
-            order by id desc
+            "SELECT *,  from_unixtime(time)  as Part_made_at
+             FROM `tkb_prodtrak` 
+             order by id desc
             ";
     }
 	

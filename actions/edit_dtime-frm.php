@@ -6,27 +6,24 @@
     <head>
         <title>Edit Form Mobile</title>
 
-
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
-        <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/redmond/jquery-ui.css">
-        <link rel="stylesheet" href="css/styleXF2.css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
-        <!-- <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> -->
-        <!-- <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
-        <script type="text/javascript" src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
-        <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+        <link rel="stylesheet" href="assets/jqmobile/jquery.mobile-1.3.2.min.css" />
+        <link rel="stylesheet" type="text/css" href="assets/jqueryui/redmond/jquery-ui.min.css">
+        <script src="assets/jquery-1.11.3.min.js"></script>
+        <script src="assets/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="assets/jqmobile/jquery.mobile-1.3.2.min.js"></script>
+        <link rel="stylesheet" href="style-xf1.css" />
+        <script type="text/javascript" src="assets/jquery.validate.min.js"></script>
 
         <script type="text/javascript">
             // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ initialize validation plugin jquery.validate.min.js
-            $(document).on("pageshow", "#c_editpage", function() {
+            $(document).on("pageshow", "#c_editpage", function () {
                 $("#c_editdtime").validate();
             });
         </script>
 
         <script type="text/javascript">
-            $(function() {
+            $(function () {
                 $("#machinenum_cid").autocomplete({
                     source: "actions/machinenum_ac.php",
                     minLength: 2,
@@ -42,7 +39,7 @@
             // multiple autocomplete for "who is on it" field.
             // multiple-remote autocomplete http://jqueryui.com/autocomplete/#multiple-remote   2013-11-07_Thu_15.55-PM
             // php from: http://www.jensbits.com/2010/03/29/jquery-ui-autocomplete-widget-with-php-and-mysql/
-            $(function() {
+            $(function () {
                 function split(val) {
                     return val.split(/,\s*/);
                 }
@@ -51,46 +48,46 @@
                 }
                 $("#whos_on_it_cid")
                         // don't navigate away from the field on tab when selecting an item
-                        .bind("keydown", function(event) {
-                    if (event.keyCode === $.ui.keyCode.TAB &&
-                            $(this).data("ui-autocomplete").menu.active) {
-                        event.preventDefault();
-                    }
-                })
+                        .bind("keydown", function (event) {
+                            if (event.keyCode === $.ui.keyCode.TAB &&
+                                    $(this).data("ui-autocomplete").menu.active) {
+                                event.preventDefault();
+                            }
+                        })
                         .autocomplete({
-                    source: function(request, response) {
-                        $.getJSON("actions/pr_who_list_ac.php", {
-                            term: extractLast(request.term)
-                        }, response);
-                    },
-                    search: function() {
-                        // custom minLength
-                        var term = extractLast(this.value);
-                        if (term.length < 2) {
-                            return false;
-                        }
-                    },
-                    focus: function() {
-                        // prevent value inserted on focus
-                        return false;
-                    },
-                    select: function(event, ui) {
-                        var terms = split(this.value);
-                        // remove the current input
-                        terms.pop();
-                        // add the selected item
-                        terms.push(ui.item.value);
-                        // add placeholder to get the comma-and-space at the end
-                        terms.push("");
-                        this.value = terms.join(", ");
-                        return false;
-                    }
-                });
+                            source: function (request, response) {
+                                $.getJSON("actions/pr_who_list_ac.php", {
+                                    term: extractLast(request.term)
+                                }, response);
+                            },
+                            search: function () {
+                                // custom minLength
+                                var term = extractLast(this.value);
+                                if (term.length < 2) {
+                                    return false;
+                                }
+                            },
+                            focus: function () {
+                                // prevent value inserted on focus
+                                return false;
+                            },
+                            select: function (event, ui) {
+                                var terms = split(this.value);
+                                // remove the current input
+                                terms.pop();
+                                // add the selected item
+                                terms.push(ui.item.value);
+                                // add placeholder to get the comma-and-space at the end
+                                terms.push("");
+                                this.value = terms.join(", ");
+                                return false;
+                            }
+                        });
             });
         </script>
 
         <script type="text/javascript">
-            $(document).ready(function() {
+            $(document).ready(function () {
                 // ----------------------------------------------- pre-select the select menu with id=active2 below...
                 $("#down2").val("<?php echo $rrecord->strval('down'); ?>");
                 // some posts said newer jqm needs this... $('active2 option[value=Yes]').prop('selected', 'selected');
@@ -99,7 +96,7 @@
         </script>
 
         <script type="text/javascript">
-            $(document).ready(function() {
+            $(document).ready(function () {
                 // ----------------------------------------------- pre-select the select menu with id=active2 below...
                 $("#priorit1").val("<?php echo $rrecord->strval('priority'); ?>");
                 // some posts said newer jqm needs this... $('active2 option[value=Yes]').prop('selected', 'selected');
@@ -142,6 +139,7 @@
                         $strDate = $intDate ? date($strFormat, $intDate) : date($strFormat);
                         return $strDate;
                     }
+
                     echo getDateTimeValue(strtotime($rrecord->strval('called4helptime')));
                     // for current date... echo getDateTimeValue();   
                     ?>" />
@@ -195,6 +193,7 @@
                         $strDate = $intDate ? date($strFormat, $intDate) : null;
                         return $strDate;
                     }
+
                     echo getDateTime(strtotime($rrecord->strval('completedtime')));
                     ?>" />
                 </div>

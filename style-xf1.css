@@ -46,6 +46,7 @@
   border-style: solid;
   border-width: 0.015em;
   background-color: #ECC8A3;
+}
 
 #table-actions-dashall-link-backup1 {
     font-weight: bolder;
@@ -61,4 +62,12 @@
     /* blueish #E5E5FF */
 }
   
+/*for jquery mobile validate error text color and postion.*/
+label.error { 
+	float: center; 
+	color: red; 
+	padding-top: .5em; 
+	vertical-align: top; 
+	font-weight:bold
+}
 
