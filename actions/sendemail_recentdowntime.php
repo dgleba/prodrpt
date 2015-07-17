@@ -6,7 +6,7 @@ class actions_sendemail_recentdowntime {
         
         // give it some time to send the email. i think set_time_limit(30) is default. May need 60 sec. 2013-11-15,2015-03-26
         // http://php.net/manual/en/function.set-time-limit.php
-        set_time_limit(85);
+        set_time_limit(95);
 
         $app = & Dataface_Application::getInstance();  // reference to Dataface_Application object
         $auth = & Dataface_AuthenticationTool::getInstance(); // reference to Dataface_Authentication object
@@ -146,7 +146,7 @@ class actions_sendemail_recentdowntime {
 
 		//Message after all the tables...
 		$message1 .= 'You can see these records in the app itself by visiting the address at: http://pmdsdata/ <br>';
-		$message1 .= 'Click on:  Prodigy - (Production Status App). <br> Login in. Click `Downtime List`.<br><br>';
+		$message1 .= 'Click on:  Prodigy - (Production Status App). <br> Login in - user:read pw:read.  Click `Downtime List`.<br><br>';
 		
 		$body1 = isset($message1) ? preg_replace('#(\\r\\n|\\n|\\r)#', '<br/>', $message1) : false;
         $body1 = preg_replace('#(______,|______)#', '<br/>', $body1);
