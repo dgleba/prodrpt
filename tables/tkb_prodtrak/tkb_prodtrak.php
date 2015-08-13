@@ -4,7 +4,7 @@ class tables_tkb_prodtrak {
 
     function __sql__() {
         return
-            "SELECT *,  from_unixtime(part_timestamp) , (cycletime + downtime) as last_time_delta, 
+            "SELECT *,  from_unixtime(part_timestamp) as tstamp, (cycletime + downtime) as last_time_delta, 
 			  IF((downtime + cycletime) < 120, (downtime + cycletime) ,  NULL) as ctime, 
 			  IF((downtime + cycletime) > 600, downtime,  NULL) as dtime 
 			  FROM `tkb_prodtrak` 
